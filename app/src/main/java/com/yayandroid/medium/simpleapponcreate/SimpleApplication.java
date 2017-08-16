@@ -11,33 +11,28 @@ import com.nostra13.universalimageloader.core.assist.ImageScaleType;
 import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
 import com.squareup.leakcanary.LeakCanary;
 import com.yayandroid.medium.simpleapponcreate.analyze.PerformanceTool;
+import com.yayandroid.medium.simpleapponcreate.di.application.ApplicationComponent;
 import com.yayandroid.medium.simpleapponcreate.thirdparty.CoolAnalyticsTool;
 import com.yayandroid.medium.simpleapponcreate.util.SomeUtilObject;
+
+import javax.inject.Inject;
 
 import uk.co.chrisjenx.calligraphy.CalligraphyConfig;
 
 public class SimpleApplication extends Application {
 
+    @Inject CoolAnalyticsTool coolAnalyticsTool;
+    @Inject ImageLoaderConfiguration imageLoaderConfiguration;
+    @Inject ImageLoader imageLoader;
+
     @Override
     public void onCreate() {
         super.onCreate();
+        ApplicationComponent.create(this).inject(this);
 
-        DisplayImageOptions options = new DisplayImageOptions.Builder()
-              .resetViewBeforeLoading(true)
-              .showImageOnFail(android.R.drawable.ic_menu_report_image)
-              .showImageForEmptyUri(android.R.drawable.ic_menu_report_image)
-              .cacheOnDisk(true)
-              .displayer(new FadeInBitmapDisplayer(300))
-              .imageScaleType(ImageScaleType.EXACTLY)
-              .bitmapConfig(Bitmap.Config.RGB_565)
-              .build();
-        ImageLoaderConfiguration configuration = new ImageLoaderConfiguration.Builder(this)
-              .defaultDisplayImageOptions(options)
-              .diskCacheSize(20 * 1024 * 1024) // 20MB
-              .build();
-        ImageLoader.getInstance().init(configuration);
+        imageLoader.init(imageLoaderConfiguration);
+        coolAnalyticsTool.configure(this);
 
-        CoolAnalyticsTool.getInstance().configure(this);
         importantMethod();
         PerformanceTool.monitor(this);
         SomeUtilObject.init(this);
