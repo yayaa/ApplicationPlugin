@@ -3,6 +3,7 @@ package com.yayandroid.medium.simpleapponcreate.di.application;
 import android.app.Application;
 
 import com.yayandroid.medium.simpleapponcreate.SimpleApplication;
+import com.yayandroid.medium.simpleapponcreate.di.ApplicationPluginModule;
 import com.yayandroid.medium.simpleapponcreate.di.ThirdPartyModule;
 import com.yayandroid.medium.simpleapponcreate.di.UILModule;
 
@@ -12,7 +13,8 @@ import dagger.Component;
 @Component(modules = {
       ApplicationModule.class,
       UILModule.class,
-      ThirdPartyModule.class
+      ThirdPartyModule.class,
+      ApplicationPluginModule.class
 })
 public abstract class ApplicationComponent {
 
