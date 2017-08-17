@@ -2,14 +2,12 @@ package com.yayandroid.medium.simpleapponcreate.di;
 
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.nostra13.universalimageloader.core.ImageLoaderConfiguration;
+import com.yayandroid.medium.simpleapponcreate.di.application.ApplicationScope;
 import com.yayandroid.medium.simpleapponcreate.plugin.ApplicationPlugin;
 import com.yayandroid.medium.simpleapponcreate.plugin.CalligraphyPlugin;
 import com.yayandroid.medium.simpleapponcreate.plugin.CoolAnalyticsToolPlugin;
 import com.yayandroid.medium.simpleapponcreate.plugin.ImageLoaderPlugin;
-import com.yayandroid.medium.simpleapponcreate.plugin.LeakCanaryPlugin;
-import com.yayandroid.medium.simpleapponcreate.plugin.PerformanceToolPlugin;
 import com.yayandroid.medium.simpleapponcreate.plugin.SomeUtilPlugin;
-import com.yayandroid.medium.simpleapponcreate.di.application.ApplicationScope;
 import com.yayandroid.medium.simpleapponcreate.thirdparty.CoolAnalyticsTool;
 
 import dagger.Module;
@@ -19,16 +17,6 @@ import dagger.multibindings.IntoSet;
 @Module
 @ApplicationScope
 public class ApplicationPluginModule {
-
-    @Provides
-    @IntoSet static ApplicationPlugin provideLeakCanaryPlugin() {
-        return new LeakCanaryPlugin();
-    }
-
-    @Provides
-    @IntoSet static ApplicationPlugin providePerformanceToolPlugin() {
-        return new PerformanceToolPlugin();
-    }
 
     @Provides
     @IntoSet static ApplicationPlugin provideSomeUtilPlugin() {

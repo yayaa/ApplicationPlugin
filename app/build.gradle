@@ -3,6 +3,7 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
+
     defaultConfig {
         applicationId "com.yayandroid.medium.simpleapponcreate"
         minSdkVersion 21
@@ -12,7 +13,12 @@ android {
         multiDexEnabled true
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
+
     buildTypes {
+        analyze {
+            initWith debug
+        }
+
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
@@ -25,8 +31,8 @@ dependencies {
 
     compile 'uk.co.chrisjenx:calligraphy:2.3.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
-    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5.2'
-    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5.2'
+
+    analyzeCompile 'com.squareup.leakcanary:leakcanary-android:1.5.2'
 
     compile 'com.google.dagger:dagger:2.11'
     annotationProcessor 'com.google.dagger:dagger-compiler:2.11'

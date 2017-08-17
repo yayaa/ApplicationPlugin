@@ -5,6 +5,7 @@ import android.app.Application;
 import com.squareup.leakcanary.LeakCanary;
 
 public class LeakCanaryPlugin implements ApplicationPlugin {
+
     @Override
     public void apply(Application application) {
         if (LeakCanary.isInAnalyzerProcess(application)) {
@@ -14,4 +15,5 @@ public class LeakCanaryPlugin implements ApplicationPlugin {
         }
         LeakCanary.install(application);
     }
+
 }

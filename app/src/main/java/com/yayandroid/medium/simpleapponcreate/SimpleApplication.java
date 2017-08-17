@@ -19,8 +19,7 @@ public class SimpleApplication extends Application {
         super.onCreate();
         ApplicationComponent.create(this).inject(this);
 
-        for (ApplicationPlugin plugin: plugins)
-            plugin.apply(this);
+        for (ApplicationPlugin plugin: plugins) plugin.apply(this);
 
         importantMethod();
     }

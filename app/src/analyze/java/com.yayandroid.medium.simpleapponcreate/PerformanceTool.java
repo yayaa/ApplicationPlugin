@@ -1,4 +1,4 @@
-package com.yayandroid.medium.simpleapponcreate.analyze;
+package com.yayandroid.medium.simpleapponcreate;
 
 import android.app.Activity;
 import android.app.Application;

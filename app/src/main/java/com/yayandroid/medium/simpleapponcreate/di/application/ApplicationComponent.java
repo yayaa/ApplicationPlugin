@@ -4,6 +4,7 @@ import android.app.Application;
 
 import com.yayandroid.medium.simpleapponcreate.SimpleApplication;
 import com.yayandroid.medium.simpleapponcreate.di.ApplicationPluginModule;
+import com.yayandroid.medium.simpleapponcreate.di.BuildSpecificPluginModule;
 import com.yayandroid.medium.simpleapponcreate.di.ThirdPartyModule;
 import com.yayandroid.medium.simpleapponcreate.di.UILModule;
 
@@ -14,7 +15,8 @@ import dagger.Component;
       ApplicationModule.class,
       UILModule.class,
       ThirdPartyModule.class,
-      ApplicationPluginModule.class
+      ApplicationPluginModule.class,
+      BuildSpecificPluginModule.class
 })
 public abstract class ApplicationComponent {
 
