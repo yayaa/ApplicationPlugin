@@ -1,6 +1,6 @@
 # SimpleAppOnCreate
-Sample project to showcase the implementation of Simple Application onCreate Post
-// TODO: Link to blog here!
+Sample project to showcase the implementation of “How Big Is Your ‘Application’?” 
+https://tech.xing.com/how-big-is-your-application-4c89377c51d
 
 ## Branches
 - **primitive** to demonstrate bad practice, very primitive way of doing these kind of application onCreate pollution.
