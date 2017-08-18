@@ -1,5 +1,6 @@
 # SimpleAppOnCreate
 Sample project to showcase the implementation of “How Big Is Your ‘Application’?” 
+
 https://tech.xing.com/how-big-is-your-application-4c89377c51d
 
 ## Branches
